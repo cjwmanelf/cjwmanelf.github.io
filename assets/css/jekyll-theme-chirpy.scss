@@ -178,7 +178,7 @@ img {
 
 /* -- category color system -- */
 /* category links inside content areas become tinted pills; sidebar nav is unaffected */
-main a[href*='/categories/']:not([href$='#']) {
+main a[href*='/categories/'] {
   display: inline-block;
   padding: 0.15em 0.75em;
   border-radius: 980px;
@@ -189,17 +189,31 @@ main a[href*='/categories/']:not([href$='#']) {
 }
 
 /* 미국주식 / 투자공부 → Apple green */
-main a[href*='%EB%AF%B8%EA%B5%AD%EC%A3%BC%EC%8B%9D'],
-main a[href*='%ED%88%AC%EC%9E%90%EA%B3%B5%EB%B6%80'] {
+main a[href*='/categories/'][href*='%EB%AF%B8%EA%B5%AD%EC%A3%BC%EC%8B%9D'],
+main a[href*='/categories/'][href*='%ED%88%AC%EC%9E%90%EA%B3%B5%EB%B6%80'] {
   color: var(--cat-green);
   background: var(--cat-green-bg);
 }
 
+main a[href*='/categories/'][href*='%EB%AF%B8%EA%B5%AD%EC%A3%BC%EC%8B%9D']:hover,
+main a[href*='/categories/'][href*='%ED%88%AC%EC%9E%90%EA%B3%B5%EB%B6%80']:hover {
+  color: var(--cat-green) !important;
+  border-bottom: none !important;
+  filter: brightness(0.92);
+}
+
 /* AIFFEL / 학습기록 → Apple purple */
 main a[href*='/categories/aiffel/'],
-main a[href*='%ED%95%99%EC%8A%B5%EA%B8%B0%EB%A1%9D'] {
+main a[href*='/categories/'][href*='%ED%95%99%EC%8A%B5%EA%B8%B0%EB%A1%9D'] {
   color: var(--cat-purple);
   background: var(--cat-purple-bg);
+}
+
+main a[href*='/categories/aiffel/']:hover,
+main a[href*='/categories/'][href*='%ED%95%99%EC%8A%B5%EA%B8%B0%EB%A1%9D']:hover {
+  color: var(--cat-purple) !important;
+  border-bottom: none !important;
+  filter: brightness(0.92);
 }
 
 /* -- macOS-style code blocks -- */
