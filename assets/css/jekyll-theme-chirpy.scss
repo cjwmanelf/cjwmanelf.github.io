@@ -141,6 +141,12 @@ h6 {
   letter-spacing: -0.02em;
 }
 
+/* -- visitor counter badge -- */
+#visitor-counter img {
+  height: 30px;
+  border-radius: 8px;
+}
+
 /* -- frosted-glass top bar (Apple style) -- */
 #topbar-wrapper {
   backdrop-filter: saturate(180%) blur(20px);

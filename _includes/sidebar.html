@@ -14,19 +14,10 @@
 
     <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
     <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
-
-    <!-- visitor counter -->
-    <p class="mt-2 mb-0" id="visitor-counter">
-      <img
-        src="https://hits.sh/cjwmanelf.github.io.svg?style=flat-square&label=%EB%B0%A9%EB%AC%B8%EC%88%98&color=1e6fba&labelColor=44494e"
-        alt="방문자 수"
-        onerror="this.parentElement.style.display='none'"
-      >
-    </p>
   </header>
   <!-- .profile-wrapper -->
 
-  <nav class="flex-column flex-grow-1 w-100 ps-0">
+  <nav class="flex-column w-100 ps-0">
     <ul class="nav">
       <!-- home -->
       <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
@@ -50,6 +41,15 @@
       {% endfor %}
     </ul>
   </nav>
+
+  <!-- visitor counter: centered in the space between the menu and the bottom controls -->
+  <div class="flex-grow-1 d-flex align-items-center justify-content-center w-100" id="visitor-counter">
+    <img
+      src="https://hits.sh/cjwmanelf.github.io.svg?style=flat-square&label=%EB%B0%A9%EB%AC%B8%EC%9E%90%20%EC%88%98&color=1e6fba&labelColor=44494e"
+      alt="방문자 수"
+      onerror="this.parentElement.style.display='none'"
+    >
+  </div>
 
   <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100">
     {% unless site.theme_mode == 'light' or site.theme_mode == 'dark' %}
