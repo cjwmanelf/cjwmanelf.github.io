@@ -169,9 +169,14 @@ h6 {
 
 #simple-mode-toggle,
 #sidebar-email-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
   background: transparent;
   border: none;
-  padding: 0.35rem 0.6rem;
   border-radius: 50%;
   font-size: 1.25rem;
   line-height: 1;
