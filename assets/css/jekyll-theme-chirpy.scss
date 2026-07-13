@@ -141,6 +141,13 @@ h6 {
   letter-spacing: -0.02em;
 }
 
+/* -- center the avatar horizontally in the sidebar -- */
+#sidebar #avatar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* -- visitor counter badge -- */
 #visitor-counter img {
   height: 30px;
@@ -289,26 +296,29 @@ div.highlighter-rouge,
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-#blog-hero a.hero-btn-primary {
-  color: #ffffff;
-  background: #143a66; /* logo navy */
+/* 투자 button — purple (AIFFEL category color) */
+#blog-hero a.hero-btn-invest {
+  color: var(--cat-purple);
+  background: var(--cat-purple-bg);
 }
 
-#blog-hero a.hero-btn-primary:hover {
-  color: #ffffff !important;
-  background: #0f2f54 !important;
+#blog-hero a.hero-btn-invest:hover {
+  color: var(--cat-purple) !important;
+  background: var(--cat-purple-bg) !important;
+  filter: brightness(0.94);
   border-bottom: none !important;
 }
 
-#blog-hero a.hero-btn-outline {
-  color: var(--text-color);
-  background: var(--button-bg);
-  border: 1px solid var(--btn-border-color);
+/* AI 개발 button — green (미국주식 category color) */
+#blog-hero a.hero-btn-ai {
+  color: var(--cat-green);
+  background: var(--cat-green-bg);
 }
 
-#blog-hero a.hero-btn-outline:hover {
-  color: var(--text-color) !important;
-  background: var(--card-hover-bg) !important;
+#blog-hero a.hero-btn-ai:hover {
+  color: var(--cat-green) !important;
+  background: var(--cat-green-bg) !important;
+  filter: brightness(0.94);
   border-bottom: none !important;
 }
 
