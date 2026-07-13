@@ -43,6 +43,7 @@
   </nav>
 
   <div class="sidebar-bottom d-flex flex-column align-items-center w-100">
+    <div class="d-flex align-items-center" id="sidebar-quick-btns">
     {% unless site.theme_mode == 'light' or site.theme_mode == 'dark' %}
       <!-- hidden original mode dropdown: kept so the theme's JS handlers still work -->
       <div class="btn-group dropup d-none">
@@ -98,6 +99,13 @@
         });
       </script>
     {% endunless %}
+
+      <!-- email button -->
+      <a href="mailto:cjwmanelf@naver.com" id="sidebar-email-btn" aria-label="이메일 보내기">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+    </div>
+    <!-- #sidebar-quick-btns -->
 
     <!-- visitor counter -->
     <div id="visitor-counter">

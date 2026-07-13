@@ -163,7 +163,12 @@ h6 {
   padding-bottom: 1.5rem;
 }
 
-#simple-mode-toggle {
+#sidebar-quick-btns {
+  gap: 0.4rem;
+}
+
+#simple-mode-toggle,
+#sidebar-email-btn {
   background: transparent;
   border: none;
   padding: 0.35rem 0.6rem;
@@ -175,7 +180,8 @@ h6 {
   transition: color 0.15s ease, background-color 0.15s ease;
 }
 
-#simple-mode-toggle:hover {
+#simple-mode-toggle:hover,
+#sidebar-email-btn:hover {
   color: var(--sidebar-active-color);
   background: var(--sidebar-hover-bg);
 }
