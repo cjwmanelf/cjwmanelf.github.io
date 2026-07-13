@@ -198,6 +198,19 @@ html[data-bs-theme='dark'] #simple-mode-toggle .smt-moon {
   border-radius: 8px;
 }
 
+/* -- pull main content closer to the sidebar -- */
+/* the theme centers the 1250px container in the leftover space, which leaves a large
+   gap next to the sidebar on wide screens; anchor it left with a modest padding instead */
+#main-wrapper > .container {
+  margin-left: 0 !important;
+}
+
+@media (min-width: 1200px) {
+  #main-wrapper > .container {
+    padding-left: 2.5rem !important;
+  }
+}
+
 /* -- frosted-glass top bar (Apple style) -- */
 #topbar-wrapper {
   backdrop-filter: saturate(180%) blur(20px);
