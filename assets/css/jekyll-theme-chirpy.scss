@@ -49,6 +49,12 @@
   --card-shadow: 0 1px 2px rgb(0 0 0 / 4%), 0 0 0 1px rgb(0 0 0 / 5%);
   --tb-odd-bg: #fafafa;
   --tb-border-color: #e8e8ed;
+
+  /* category accent colors (Apple palette) */
+  --cat-green: #248a3d;
+  --cat-green-bg: rgb(52 199 89 / 12%);
+  --cat-purple: #8944ab;
+  --cat-purple-bg: rgb(175 82 222 / 12%);
 }
 
 @mixin apple-dark {
@@ -83,6 +89,12 @@
   --card-shadow: 0 0 0 1px rgb(255 255 255 / 7%);
   --tb-odd-bg: #1d1d1f;
   --tb-border-color: #2d2d2f;
+
+  /* category accent colors (Apple palette, dark) */
+  --cat-green: #30d158;
+  --cat-green-bg: rgb(48 209 88 / 16%);
+  --cat-purple: #bf5af2;
+  --cat-purple-bg: rgb(191 90 242 / 18%);
 }
 
 /* follow the same mode-scoping selectors as the theme (Bootstrap data-bs-theme) */
@@ -162,4 +174,83 @@ blockquote {
 
 img {
   border-radius: 12px;
+}
+
+/* -- category color system -- */
+/* category links inside content areas become tinted pills; sidebar nav is unaffected */
+main a[href*='/categories/']:not([href$='#']) {
+  display: inline-block;
+  padding: 0.15em 0.75em;
+  border-radius: 980px;
+  border-bottom: none;
+  font-weight: 500;
+  text-decoration: none;
+  background: var(--btn-border-color);
+}
+
+/* 미국주식 / 투자공부 → Apple green */
+main a[href*='%EB%AF%B8%EA%B5%AD%EC%A3%BC%EC%8B%9D'],
+main a[href*='%ED%88%AC%EC%9E%90%EA%B3%B5%EB%B6%80'] {
+  color: var(--cat-green);
+  background: var(--cat-green-bg);
+}
+
+/* AIFFEL / 학습기록 → Apple purple */
+main a[href*='/categories/aiffel/'],
+main a[href*='%ED%95%99%EC%8A%B5%EA%B8%B0%EB%A1%9D'] {
+  color: var(--cat-purple);
+  background: var(--cat-purple-bg);
+}
+
+/* -- macOS-style code blocks -- */
+div[class^='language-'],
+div.highlighter-rouge,
+.highlight {
+  border-radius: 12px;
+}
+
+.code-header::before {
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  margin-inline: 0.9rem 0.25rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 1.15rem 0 0 #febc2e, 2.3rem 0 0 #28c840;
+}
+
+/* -- subtle motion -- */
+a,
+.btn {
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  #post-list .card-wrapper {
+    animation: fade-up 0.45s ease-out both;
+  }
+
+  #post-list .card-wrapper:nth-child(2) { animation-delay: 0.06s; }
+  #post-list .card-wrapper:nth-child(3) { animation-delay: 0.12s; }
+  #post-list .card-wrapper:nth-child(4) { animation-delay: 0.18s; }
+  #post-list .card-wrapper:nth-child(5) { animation-delay: 0.24s; }
+  #post-list .card-wrapper:nth-child(n + 6) { animation-delay: 0.3s; }
+
+  main article {
+    animation: fade-up 0.4s ease-out both;
+  }
 }
