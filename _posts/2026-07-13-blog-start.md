@@ -1,7 +1,6 @@
 ---
 title: 블로그를 시작합니다
 date: 2026-07-13 12:00:00 +0900
-categories: [블로그]
 tags: [시작, 소개]
 pin: true
 ---

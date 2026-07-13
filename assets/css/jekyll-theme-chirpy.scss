@@ -1,0 +1,165 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* ===== Apple-style theme customization ===== */
+
+/* -- color palettes -- */
+@mixin apple-light {
+  --main-bg: #ffffff;
+  --main-border-color: #ececee;
+  --text-color: #1d1d1f;
+  --text-muted-color: #6e6e73;
+  --heading-color: #1d1d1f;
+  --link-color: #0066cc;
+  --link-underline-color: rgb(0 102 204 / 30%);
+  --blockquote-border-color: #d2d2d7;
+  --blockquote-text-color: #6e6e73;
+  --button-bg: #ffffff;
+  --btn-border-color: #e8e8ed;
+
+  --site-title-color: #1d1d1f;
+  --site-subtitle-color: #6e6e73;
+  --sidebar-bg: #f5f5f7;
+  --sidebar-border-color: #e8e8ed;
+  --sidebar-muted-color: #515154;
+  --sidebar-active-color: #1d1d1f;
+  --sidebar-hover-bg: rgb(0 0 0 / 6%);
+
+  --topbar-bg: rgb(255 255 255 / 72%);
+  --topbar-text-color: #1d1d1f;
+
+  --post-list-text-color: #6e6e73;
+  --toc-highlight: #0066cc;
+  --btn-share-hover-color: #0066cc;
+  --card-bg: #ffffff;
+  --card-hover-bg: #f5f5f7;
+  --card-shadow: 0 1px 2px rgb(0 0 0 / 4%), 0 0 0 1px rgb(0 0 0 / 5%);
+  --tb-odd-bg: #fafafa;
+  --tb-border-color: #e8e8ed;
+}
+
+@mixin apple-dark {
+  --main-bg: #161617;
+  --main-border-color: #2d2d2f;
+  --text-color: #d2d2d7;
+  --text-muted-color: #86868b;
+  --heading-color: #f5f5f7;
+  --link-color: #2997ff;
+  --link-underline-color: rgb(41 151 255 / 30%);
+  --blockquote-border-color: #3a3a3c;
+  --blockquote-text-color: #86868b;
+  --button-bg: #1d1d1f;
+  --btn-border-color: #2d2d2f;
+
+  --site-title-color: #f5f5f7;
+  --site-subtitle-color: #86868b;
+  --sidebar-bg: #1d1d1f;
+  --sidebar-border-color: #2d2d2f;
+  --sidebar-muted-color: #a1a1a6;
+  --sidebar-active-color: #f5f5f7;
+  --sidebar-hover-bg: rgb(255 255 255 / 8%);
+
+  --topbar-bg: rgb(22 22 23 / 72%);
+  --topbar-text-color: #d2d2d7;
+
+  --post-list-text-color: #a1a1a6;
+  --toc-highlight: #2997ff;
+  --btn-share-hover-color: #2997ff;
+  --card-bg: #1d1d1f;
+  --card-hover-bg: #252527;
+  --card-shadow: 0 0 0 1px rgb(255 255 255 / 7%);
+  --tb-odd-bg: #1d1d1f;
+  --tb-border-color: #2d2d2f;
+}
+
+/* follow the same mode-scoping pattern as the theme */
+html:not([data-mode]),
+html[data-mode='light'] {
+  @include apple-light;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) {
+    @include apple-dark;
+  }
+}
+
+html[data-mode='dark'] {
+  @include apple-dark;
+}
+
+/* -- typography: Apple system font stack -- */
+body,
+.site-title,
+.site-subtitle {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro KR', 'Segoe UI',
+    'Apple SD Gothic Neo', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro KR', 'Segoe UI',
+    'Apple SD Gothic Neo', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+#sidebar .site-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* -- frosted-glass top bar (Apple style) -- */
+#topbar-wrapper {
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* -- softer, rounder surfaces -- */
+.card {
+  border: none;
+  border-radius: 16px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+#post-list .card:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 8%), 0 0 0 1px rgb(0 0 0 / 4%);
+  transform: translateY(-2px);
+}
+
+.post-tag,
+#search-input {
+  border-radius: 980px; /* Apple pill radius */
+}
+
+#sidebar ul li.nav-item a.nav-link {
+  border-radius: 10px;
+}
+
+blockquote {
+  border-left-width: 3px;
+}
+
+img {
+  border-radius: 12px;
+}
