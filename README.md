@@ -1,39 +1,62 @@
-# Chirpy Starter
+# 종우의 기록 (cjwmanelf.github.io)
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+미국주식 투자와 아이펠(AIFFEL) AI 에이전트 KDT 과정 학습 내용을 기록하는 블로그입니다.
 
-A minimal, ready-to-use template for creating a blog with the [**Chirpy**][chirpy] Jekyll theme. Get up and running in minutes with all critical files pre-configured.
+- 블로그 주소: <https://cjwmanelf.github.io>
+- 테마: [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)
+- 배포: GitHub Actions (push하면 자동으로 빌드·배포됨)
 
-## Why This Starter Exists
+## 글 쓰는 법
 
-When installing Chirpy through [RubyGems.org][gem], Jekyll can only read a subset of theme files (`_data`, `_layouts`, `_includes`, `_sass`, `assets`) and limited `_config.yml` options from the gem. As a result, users cannot enjoy the full out-of-the-box experience that Chirpy offers.
+1. `_posts/` 폴더에 `YYYY-MM-DD-제목.md` 형식으로 파일 생성 (파일명은 영문 권장)
+2. 파일 맨 위에 아래 형식(front matter)을 작성
 
-To unlock all features, the following files must be present in your Jekyll site:
-
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+```yaml
+---
+title: 글 제목
+date: 2026-07-13 20:00:00 +0900
+categories: [미국주식, 투자공부]   # 또는 [AIFFEL, 학습기록]
+tags: [태그1, 태그2]
+---
 ```
 
-This starter bundles those files from the latest **Chirpy** release along with a [CD][CD] workflow, so you can start writing immediately.
+3. 그 아래에 마크다운으로 본문 작성
+4. 커밋 후 push하면 1~2분 안에 블로그에 반영됨
 
-## Usage
+```bash
+git add .
+git commit -m "post: 글 제목"
+git push
+```
 
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+### 자주 쓰는 문법 (Chirpy 전용)
 
-## Contributing
+```markdown
+> 팁 박스
+{: .prompt-tip }
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+> 경고 박스
+{: .prompt-warning }
+```
 
-## License
+이미지는 `assets/img/` 폴더에 넣고 `![설명](/assets/img/파일명.png)`으로 삽입.
 
-This work is published under [MIT][mit] License.
+## 구글 애드센스 (추후 진행)
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+애드센스 승인을 받으려면 보통 **글 20~30개 이상, 운영 2~3개월**이 필요합니다.
+승인 신청 시점에 할 일:
+
+1. [Google AdSense](https://adsense.google.com) 가입 → 사이트 `https://cjwmanelf.github.io` 등록
+2. 발급받은 애드센스 코드(`ca-pub-XXXX`)를 사이트 `<head>`에 삽입
+3. 저장소 루트에 `ads.txt` 파일 추가 (애드센스에서 제공하는 내용)
+4. 승인 후 광고 단위 코드를 원하는 위치에 배치
+
+## 로컬 미리보기 (선택)
+
+로컬에 Ruby가 없어도 push만 하면 배포되지만, 미리 보고 싶으면:
+
+```bash
+bundle install
+bundle exec jekyll serve
+# http://127.0.0.1:4000 접속
+```
