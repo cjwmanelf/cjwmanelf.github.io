@@ -148,7 +148,42 @@ h6 {
   margin-right: auto;
 }
 
-/* -- visitor counter badge -- */
+/* -- sidebar bottom: one-click mode toggle + centered visitor badge -- */
+#sidebar .sidebar-bottom {
+  gap: 0.4rem;
+  padding-bottom: 1.5rem;
+}
+
+#simple-mode-toggle {
+  background: transparent;
+  border: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--sidebar-muted-color);
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+#simple-mode-toggle:hover {
+  color: var(--sidebar-active-color);
+  background: var(--sidebar-hover-bg);
+}
+
+/* light mode shows the moon (click → dark); dark mode shows the sun (click → light) */
+#simple-mode-toggle .smt-sun {
+  display: none;
+}
+
+html[data-bs-theme='dark'] #simple-mode-toggle .smt-sun {
+  display: inline-block;
+}
+
+html[data-bs-theme='dark'] #simple-mode-toggle .smt-moon {
+  display: none;
+}
+
 #visitor-counter img {
   height: 30px;
   border-radius: 8px;
