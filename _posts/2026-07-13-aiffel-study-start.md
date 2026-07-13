@@ -1,7 +1,7 @@
 ---
 title: "[AIFFEL] AI 에이전트 KDT 과정 학습 기록을 시작하며"
 date: 2026-07-13 12:20:00 +0900
-categories: [AIFFEL, 학습기록]
+categories: [AI 개발, 학습기록]
 tags: [AIFFEL, AI에이전트, KDT]
 ---
 

@@ -201,28 +201,26 @@ main a[href*='/categories/'] {
   background: var(--btn-border-color);
 }
 
-/* 미국주식 / 투자공부 → Apple green */
-main a[href*='/categories/'][href*='%EB%AF%B8%EA%B5%AD%EC%A3%BC%EC%8B%9D'],
-main a[href*='/categories/'][href*='%ED%88%AC%EC%9E%90%EA%B3%B5%EB%B6%80'] {
+/* 투자 / 투자공부 → Apple green */
+main a[href*='/categories/'][href*='%ED%88%AC%EC%9E%90'] {
   color: var(--cat-green);
   background: var(--cat-green-bg);
 }
 
-main a[href*='/categories/'][href*='%EB%AF%B8%EA%B5%AD%EC%A3%BC%EC%8B%9D']:hover,
-main a[href*='/categories/'][href*='%ED%88%AC%EC%9E%90%EA%B3%B5%EB%B6%80']:hover {
+main a[href*='/categories/'][href*='%ED%88%AC%EC%9E%90']:hover {
   color: var(--cat-green) !important;
   border-bottom: none !important;
   filter: brightness(0.92);
 }
 
-/* AIFFEL / 학습기록 → Apple purple */
-main a[href*='/categories/aiffel/'],
+/* AI 개발 / 학습기록 → Apple purple */
+main a[href*='/categories/ai-'],
 main a[href*='/categories/'][href*='%ED%95%99%EC%8A%B5%EA%B8%B0%EB%A1%9D'] {
   color: var(--cat-purple);
   background: var(--cat-purple-bg);
 }
 
-main a[href*='/categories/aiffel/']:hover,
+main a[href*='/categories/ai-']:hover,
 main a[href*='/categories/'][href*='%ED%95%99%EC%8A%B5%EA%B8%B0%EB%A1%9D']:hover {
   color: var(--cat-purple) !important;
   border-bottom: none !important;
@@ -296,28 +294,28 @@ div.highlighter-rouge,
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-/* 투자 button — purple (AIFFEL category color) */
+/* 투자 button — green (matches 투자 category color) */
 #blog-hero a.hero-btn-invest {
-  color: var(--cat-purple);
-  background: var(--cat-purple-bg);
-}
-
-#blog-hero a.hero-btn-invest:hover {
-  color: var(--cat-purple) !important;
-  background: var(--cat-purple-bg) !important;
-  filter: brightness(0.94);
-  border-bottom: none !important;
-}
-
-/* AI 개발 button — green (미국주식 category color) */
-#blog-hero a.hero-btn-ai {
   color: var(--cat-green);
   background: var(--cat-green-bg);
 }
 
-#blog-hero a.hero-btn-ai:hover {
+#blog-hero a.hero-btn-invest:hover {
   color: var(--cat-green) !important;
   background: var(--cat-green-bg) !important;
+  filter: brightness(0.94);
+  border-bottom: none !important;
+}
+
+/* AI 개발 button — purple (matches AI 개발 category color) */
+#blog-hero a.hero-btn-ai {
+  color: var(--cat-purple);
+  background: var(--cat-purple-bg);
+}
+
+#blog-hero a.hero-btn-ai:hover {
+  color: var(--cat-purple) !important;
+  background: var(--cat-purple-bg) !important;
   filter: brightness(0.94);
   border-bottom: none !important;
 }
