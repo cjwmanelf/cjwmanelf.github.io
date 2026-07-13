@@ -85,19 +85,19 @@
   --tb-border-color: #2d2d2f;
 }
 
-/* follow the same mode-scoping pattern as the theme */
-html:not([data-mode]),
-html[data-mode='light'] {
+/* follow the same mode-scoping selectors as the theme (Bootstrap data-bs-theme) */
+:root[data-bs-theme='light'],
+:root:not([data-bs-theme]) {
   @include apple-light;
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not([data-mode]) {
+  :root:not([data-bs-theme]) {
     @include apple-dark;
   }
 }
 
-html[data-mode='dark'] {
+:root[data-bs-theme='dark'] {
   @include apple-dark;
 }
 
