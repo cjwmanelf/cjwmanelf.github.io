@@ -288,11 +288,23 @@ html[data-bs-theme='dark'] #simple-mode-toggle .smt-moon {
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
-/* -- glassmorphism sidebar -- */
+/* -- glassmorphism island sidebar -- */
 #sidebar {
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
   border-right: 1px solid var(--sidebar-border-color);
+}
+
+/* floating rounded island on desktop; the mobile drawer stays untouched */
+@media (min-width: 992px) {
+  #sidebar {
+    top: 1rem;
+    left: 1rem;
+    height: calc(100% - 2rem);
+    border: 1px solid var(--sidebar-border-color);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 6%);
+  }
 }
 
 /* avatar micro-animation */
