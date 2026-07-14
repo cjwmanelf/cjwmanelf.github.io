@@ -158,9 +158,13 @@ h6 {
 }
 
 /* -- sidebar bottom: one-click mode toggle + centered visitor badge -- */
+/* the theme pads this area asymmetrically (left 2~2.75rem vs right 1rem);
+   equalize so the centered content sits in the true middle of the sidebar */
 #sidebar .sidebar-bottom {
   gap: 0.4rem;
   padding-bottom: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 #sidebar-quick-btns {
