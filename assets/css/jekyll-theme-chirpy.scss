@@ -32,7 +32,7 @@
 
   --site-title-color: #1d1d1f;
   --site-subtitle-color: #6e6e73;
-  --sidebar-bg: #f5f5f7;
+  --sidebar-bg: rgb(245 245 247 / 78%);
   --sidebar-border-color: #e8e8ed;
   --sidebar-muted-color: #515154;
   --sidebar-active-color: #1d1d1f;
@@ -55,6 +55,14 @@
   --cat-green-bg: rgb(52 199 89 / 12%);
   --cat-purple: #8944ab;
   --cat-purple-bg: rgb(175 82 222 / 12%);
+
+  /* cyber aura palette */
+  --aurora-1: rgb(0 113 227 / 15%);
+  --aurora-2: rgb(168 85 247 / 12%);
+  --card-border: rgb(0 0 0 / 6%);
+  --card-hover-border: rgb(108 92 231 / 45%);
+  --nav-active-bg: linear-gradient(90deg, rgb(108 92 231 / 14%), rgb(108 92 231 / 3%));
+  --nav-active-bar: #6c5ce7;
 }
 
 @mixin apple-dark {
@@ -72,7 +80,7 @@
 
   --site-title-color: #f5f5f7;
   --site-subtitle-color: #86868b;
-  --sidebar-bg: #1d1d1f;
+  --sidebar-bg: rgb(24 24 26 / 62%);
   --sidebar-border-color: #2d2d2f;
   --sidebar-muted-color: #a1a1a6;
   --sidebar-active-color: #f5f5f7;
@@ -95,6 +103,14 @@
   --cat-green-bg: rgb(48 209 88 / 16%);
   --cat-purple: #bf5af2;
   --cat-purple-bg: rgb(191 90 242 / 18%);
+
+  /* cyber aura palette (dark) */
+  --aurora-1: rgb(41 151 255 / 18%);
+  --aurora-2: rgb(191 90 242 / 16%);
+  --card-border: rgb(255 255 255 / 8%);
+  --card-hover-border: rgb(138 116 255 / 55%);
+  --nav-active-bg: linear-gradient(90deg, rgb(138 116 255 / 20%), rgb(138 116 255 / 5%));
+  --nav-active-bar: #8a74ff;
 }
 
 /* follow the same mode-scoping selectors as the theme (Bootstrap data-bs-theme) */
@@ -113,12 +129,12 @@
   @include apple-dark;
 }
 
-/* -- typography: Apple system font stack -- */
+/* -- typography: premium web fonts (Inter body / Plus Jakarta Sans headings / Fira Code) -- */
 body,
 .site-title,
 .site-subtitle {
   font-family:
-    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro KR', 'Segoe UI',
+    'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Apple SD Gothic Neo', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -130,14 +146,23 @@ h4,
 h5,
 h6 {
   font-family:
-    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro KR', 'Segoe UI',
+    'Plus Jakarta Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Apple SD Gothic Neo', 'Malgun Gothic', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
+code,
+kbd,
+pre,
+.highlight,
+.highlighter-rouge {
+  font-family: 'Fira Code', 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
 #sidebar .site-title {
-  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+  font-weight: 800;
   letter-spacing: -0.02em;
 }
 
@@ -263,16 +288,82 @@ html[data-bs-theme='dark'] #simple-mode-toggle .smt-moon {
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
-/* -- softer, rounder surfaces -- */
+/* -- ambient aurora glow background -- */
+html {
+  background: var(--main-bg);
+}
+
+body {
+  background: transparent;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  width: 58vw;
+  height: 58vw;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  top: -20vw;
+  right: -14vw;
+  background: radial-gradient(circle, var(--aurora-1) 0%, transparent 65%);
+}
+
+body::after {
+  bottom: -22vw;
+  left: -10vw;
+  background: radial-gradient(circle, var(--aurora-2) 0%, transparent 65%);
+}
+
+/* -- glassmorphism sidebar -- */
+#sidebar {
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-right: 1px solid var(--sidebar-border-color);
+}
+
+/* avatar micro-animation */
+#avatar img {
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#avatar:hover img {
+  transform: scale(1.08) rotate(3deg);
+}
+
+/* active menu tab: soft indigo backplate + left accent bar */
+#sidebar ul li.nav-item.active a.nav-link {
+  background: var(--nav-active-bg);
+  border-left: 3px solid var(--nav-active-bar);
+  border-radius: 0 10px 10px 0;
+  color: var(--sidebar-active-color);
+}
+
+/* -- floating hover cards -- */
 .card {
-  border: none;
-  border-radius: 16px;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
 #post-list .card:hover {
-  box-shadow: 0 4px 16px rgb(0 0 0 / 8%), 0 0 0 1px rgb(0 0 0 / 4%);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgb(0 0 0 / 12%);
+  border-color: var(--card-hover-border);
+  transform: translateY(-5px);
+}
+
+#post-list .card img {
+  transition: transform 0.5s ease;
+}
+
+#post-list .card:hover img {
+  transform: scale(1.04);
 }
 
 .post-tag,
@@ -282,6 +373,20 @@ html[data-bs-theme='dark'] #simple-mode-toggle .smt-moon {
 
 #sidebar ul li.nav-item a.nav-link {
   border-radius: 10px;
+}
+
+/* -- readability: relaxed body copy -- */
+main article .content {
+  line-height: 1.85;
+  font-size: 1.02rem;
+}
+
+/* quote styling (prompt boxes keep their own look) */
+.content blockquote:not([class*='prompt']) {
+  background: linear-gradient(90deg, rgb(168 85 247 / 8%), transparent 75%);
+  border-left: 3px solid #a855f7;
+  border-radius: 0 12px 12px 0;
+  padding: 0.75rem 1rem;
 }
 
 blockquote {
@@ -366,9 +471,13 @@ div.highlighter-rouge,
 #blog-hero h1 {
   margin: 0;
   font-size: 1.45rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--heading-color);
+  background: linear-gradient(120deg, #2997ff 0%, #6c5ce7 55%, #bf5af2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #6c5ce7; /* fallback for browsers without background-clip: text */
 }
 
 #blog-hero .hero-sub {
@@ -408,6 +517,7 @@ div.highlighter-rouge,
   background: var(--cat-green-bg) !important;
   filter: brightness(0.94);
   border-bottom: none !important;
+  box-shadow: 0 0 18px rgb(48 209 88 / 40%);
 }
 
 /* AI 개발 button — purple (matches AI 개발 category color) */
@@ -421,6 +531,7 @@ div.highlighter-rouge,
   background: var(--cat-purple-bg) !important;
   filter: brightness(0.94);
   border-bottom: none !important;
+  box-shadow: 0 0 18px rgb(191 90 242 / 40%);
 }
 
 @media (max-width: 576px) {
