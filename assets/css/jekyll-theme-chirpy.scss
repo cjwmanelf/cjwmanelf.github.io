@@ -157,6 +157,37 @@ h6 {
   }
 }
 
+/* -- search box in the sidebar (above the nav menu) -- */
+#sidebar-search {
+  padding: 0.25rem 1.5rem 0.5rem;
+}
+
+#sidebar-search #search {
+  display: flex !important; /* the theme hides #search on small screens; always show it in the sidebar */
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--search-border-color);
+  border-radius: 980px;
+  background: var(--button-bg);
+  padding: 0 0.75rem;
+}
+
+#sidebar-search #search i {
+  color: var(--search-icon-color);
+}
+
+#sidebar-search #search input {
+  background: transparent;
+  border: none;
+  height: 2.1rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+#sidebar-search #search input:focus {
+  box-shadow: none;
+}
+
 /* -- sidebar bottom: one-click mode toggle + centered visitor badge -- */
 /* the theme pads this area asymmetrically (left 2~2.75rem vs right 1rem);
    equalize so the centered content sits in the true middle of the sidebar */
