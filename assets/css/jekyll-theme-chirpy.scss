@@ -166,6 +166,15 @@ pre,
   letter-spacing: -0.02em;
 }
 
+#sidebar .site-signature {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--site-subtitle-color);
+  opacity: 0.85;
+}
+
 /* -- center the avatar horizontally in the sidebar -- */
 /* the theme gives .profile-wrapper asymmetric padding (left 2.5/3.5rem, right 1.25rem),
    so true centering needs a leftward shift of half the difference */
