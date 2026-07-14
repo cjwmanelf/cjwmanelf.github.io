@@ -352,6 +352,12 @@ body::after {
   transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
+/* match the theme's stronger #post-list selector so the border/shadow actually apply */
+#post-list .card {
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+}
+
 #post-list .card:hover {
   box-shadow: 0 12px 28px rgb(0 0 0 / 12%);
   border-color: var(--card-hover-border);
