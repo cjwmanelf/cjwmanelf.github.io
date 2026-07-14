@@ -166,6 +166,12 @@ pre,
   letter-spacing: -0.02em;
 }
 
+/* the theme gives the subtitle a fixed 3rem height; let it hug its content
+   so the _Jongwoo line sits right below the tagline */
+#sidebar .site-subtitle {
+  height: auto;
+}
+
 /* -- center the avatar horizontally in the sidebar -- */
 /* the theme gives .profile-wrapper asymmetric padding (left 2.5/3.5rem, right 1.25rem),
    so true centering needs a leftward shift of half the difference */
