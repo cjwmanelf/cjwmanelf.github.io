@@ -183,8 +183,10 @@ pre,
 }
 
 /* -- search box in the sidebar (above the nav menu) -- */
+/* pulled up toward the profile, with clear separation from the home menu below */
 #sidebar-search {
-  padding: 0.25rem 1.5rem 0.5rem;
+  margin-top: -1.25rem;
+  padding: 0 1.5rem 1.75rem;
 }
 
 #sidebar-search #search {
